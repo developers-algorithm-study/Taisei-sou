@@ -15,7 +15,7 @@ int GetResult(const int n)
 	const long long limit = 1000000000L;
 	long long iter = limit;
 
-	long long quotient, remained, over, under;
+	long long quotient, remained, under;
 
 	long long calcTable[10] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
@@ -28,18 +28,13 @@ int GetResult(const int n)
 		//몫이 유효할 때
 		if (quotient > 0)
 		{
-			//초과값 구함
-			over = quotient / 10;
 			//언더값 구함
 			under = quotient % 10;
 			
 			//오버 채우기 확정
 			for (int count = 0; count<10; ++count)
 			{
-				/*if (count == 0 && over > 0)
-					calcTable[count] += iter * (over - 1);
-				else*/
-					calcTable[count] += (quotient -1)/10 * iter;
+				calcTable[count] += (quotient -1)/10 * iter;
 			}
 
 			//오버 채우기 미확정
